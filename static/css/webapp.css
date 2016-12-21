@@ -1,0 +1,80 @@
+@charset "utf-8";
+html,body{background: #ebebeb; cursor: default; color: #333;height: 100%; overflow: hidden;}
+// http://www.css88.com/book/css/
+// 弹性布局===================
+.l-flex-h,
+.l-flex-hc,
+.l-flex-hvc,
+.l-flex-v,
+.l-flex-vc,
+.l-flex-vhc,
+.l-flex-wrap { // 应用于父元素 
+  display: flex;
+}
+// flex-flow: <' flex-direction '> || <' flex-wrap '>
+// flex-direction: row | row-reverse | column | column-reverse
+// flex-wrap: nowrap | wrap | wrap-reverse
+.l-flex-h,
+.l-flex-hc,
+.l-flex-hvc { // 水平排列
+  flex-flow: row nowrap;
+}
+.l-flex-v,
+.l-flex-vc,
+.l-flex-vhc { // 垂直排列
+  flex-flow: column nowrap;
+}
+// justify-content: flex-start | flex-end | center | space-between | space-around 用于不换行的弹性盒模型容器
+// align-items: flex-start | flex-end | center | baseline | stretch 用于不换行的弹性盒模型容器
+.l-flex-h { // 子元素高度相同
+  align-items: strecth;
+}
+.l-flex-hc,
+.l-flex-hvc { // 水平排列的垂直居中
+  align-items: center;
+}
+.l-flex-hvc { // 水平排列的水平居中
+  justify-content: center; 
+}
+.l-flex-vc,
+.l-flex-vhc{ // 垂直排列的垂直居中
+  justify-content: center;
+}
+.l-flex-vhc { // 垂直排列的水平居中
+  align-items: center;
+}
+// align-content: flex-start | flex-end | center | space-between | space-around | stretch 用于换行的弹性盒模型容器
+.l-flex-wrap { // 水平排列-换行
+  flex-flow: row wrap;
+}
+// 设置子项
+// flex: none | <' flex-grow '> <' flex-shrink >'? || <' flex-basis '>
+// flex-grow: <number> 剩余空间扩展比例
+// flex-shrink: <number>  不足空间收缩比例
+// flex-basis: <length> | <percentage> | auto | content   // 基准值
+// align-self: auto | flex-start | flex-end | center | baseline | stretch
+[class*='l-flex-'] > .l-rest { // 如果只有设置其中一个子项，其将霸占剩余部分
+  flex: 1;
+}
+// 弹性布局===================end
+
+// 文字==========================
+.l-text-wrap {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.l-text-clamp {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 2.4em;
+  line-height: 1.2;
+  word-break: break-all;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+//============================
+.l-app{height: 100%;}
