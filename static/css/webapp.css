@@ -1,80 +1,72 @@
 @charset 'utf-8';
-@font-face {
-  font-family: 'l-iconfont';  /* project id 207792 */
-  src: url('//at.alicdn.com/t/font_exvhhhai5j5opqfr.eot');
-  src: url('//at.alicdn.com/t/font_exvhhhai5j5opqfr.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_exvhhhai5j5opqfr.woff') format('woff'),
-  url('//at.alicdn.com/t/font_exvhhhai5j5opqfr.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_exvhhhai5j5opqfr.svg#l-iconfont') format('svg');
-}
-.l-icon{
-  font-family: 'l-iconfont' !important;
-  font-style: normal;
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: .2px;
-}
 html,body{background: #ebebeb; cursor: default; color: #333;height: 100%; overflow: hidden;}
-// http://www.css88.com/book/css/
-// 弹性布局===================
+/*
+  http://www.css88.com/book/css/
+  弹性布局===================
+*/
 .l-flex-h,
 .l-flex-hc,
 .l-flex-hvc,
 .l-flex-v,
 .l-flex-vc,
 .l-flex-vhc,
-.l-flex-wrap { // 应用于父元素 
+.l-flex-wrap { /*应用于父元素 */
   display: -webkit-box;display: -ms-flexbox;display: flex;
 }
-// flex-flow: <' flex-direction '> || <' flex-wrap '>
-// flex-direction: row | row-reverse | column | column-reverse
-// flex-wrap: nowrap | wrap | wrap-reverse
+/*
+  flex-flow: <' flex-direction '> || <' flex-wrap '>
+  flex-direction: row | row-reverse | column | column-reverse
+  flex-wrap: nowrap | wrap | wrap-reverse
+*/
 .l-flex-h,
 .l-flex-hc,
-.l-flex-hvc { // 水平排列
+.l-flex-hvc { /*水平排列*/
   -ms-flex-flow: row nowrap;flex-flow: row nowrap;
 }
 .l-flex-v,
 .l-flex-vc,
-.l-flex-vhc { // 垂直排列
+.l-flex-vhc { /*垂直排列*/
   -ms-flex-flow: column nowrap;flex-flow: column nowrap;
 }
-// justify-content: flex-start | flex-end | center | space-between | space-around 用于不换行的弹性盒模型容器
-// align-items: flex-start | flex-end | center | baseline | stretch 用于不换行的弹性盒模型容器
-.l-flex-h { // 子元素高度相同
+/*
+  justify-content: flex-start | flex-end | center | space-between | space-around 用于不换行的弹性盒模型容器
+  align-items: flex-start | flex-end | center | baseline | stretch 用于不换行的弹性盒模型容器
+*/
+.l-flex-h { /*子元素高度相同*/
   -webkit-box-align: strecth;-ms-flex-align: strecth;align-items: strecth;
 }
 .l-flex-hc,
-.l-flex-hvc { // 水平排列的垂直居中
+.l-flex-hvc { /*水平排列的垂直居中*/
   -webkit-box-align: center;-ms-flex-align: center;align-items: center;
 }
-.l-flex-hvc { // 水平排列的水平居中
+.l-flex-hvc { /*水平排列的水平居中*/
   -webkit-box-pack: center;-ms-flex-pack: center;justify-content: center; 
 }
 .l-flex-vc,
-.l-flex-vhc{ // 垂直排列的垂直居中
+.l-flex-vhc{ /*垂直排列的垂直居中*/
   -webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;
 }
-.l-flex-vhc { // 垂直排列的水平居中
+.l-flex-vhc { /*垂直排列的水平居中*/
   -webkit-box-align: center;-ms-flex-align: center;align-items: center;
 }
-// align-content: flex-start | flex-end | center | space-between | space-around | stretch 用于换行的弹性盒模型容器
-.l-flex-wrap { // 水平排列-换行
+/*
+  align-content: flex-start | flex-end | center | space-between | space-around | stretch 用于换行的弹性盒模型容器
+*/
+.l-flex-wrap { /*水平排列-换行*/
   -ms-flex-flow: row wrap;flex-flow: row wrap;
 }
-// 设置子项
-// flex: none | <' flex-grow '> <' flex-shrink >'? || <' flex-basis '>
-// flex-grow: <number> 剩余空间扩展比例
-// flex-shrink: <number>  不足空间收缩比例
-// flex-basis: <length> | <percentage> | auto | content   // 基准值
-// align-self: auto | flex-start | flex-end | center | baseline | stretch
-[class*='l-flex-'] > .l-rest { // 如果只有设置其中一个子项，其将霸占剩余部分
+/*
+  设置子项
+  flex: none | <' flex-grow '> <' flex-shrink >'? || <' flex-basis '>
+  flex-grow: <number> 剩余空间扩展比例
+  flex-shrink: <number>  不足空间收缩比例
+  flex-basis: <length> | <percentage> | auto | content   // 基准值
+  align-self: auto | flex-start | flex-end | center | baseline | stretch
+*/
+[class*='l-flex-'] > .l-rest { /*如果只有设置其中一个子项，其将霸占剩余部分*/
   -webkit-box-flex: 1;-ms-flex: 1;flex: 1;
 }
-// 弹性布局===================end
-
-// 文字==========================
+/*弹性布局===================end*/
 .l-text-wrap {
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -92,15 +84,46 @@ html,body{background: #ebebeb; cursor: default; color: #333;height: 100%; overfl
   -webkit-line-clamp: 2;
 }
 
-//============================
-.l-app-page{height: 100%; position: relative;max-width: 1125px;margin:auto; background-color: #f3f3f3;}
+@font-face {
+  font-family: 'l-iconfont';  /* project id 207792 */
+  src: url('//at.alicdn.com/t/font_exvhhhai5j5opqfr.eot');
+  src: url('//at.alicdn.com/t/font_exvhhhai5j5opqfr.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_exvhhhai5j5opqfr.woff') format('woff'),
+  url('//at.alicdn.com/t/font_exvhhhai5j5opqfr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_exvhhhai5j5opqfr.svg#l-iconfont') format('svg');
+}
+.l-icon{
+  font-family: 'l-iconfont' !important;
+  font-style: normal;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: .2px;
+}
+.l-app-page, .page-group{height: 100%; position: relative;max-width: 750px;margin:auto; background-color: #f3f3f3;}
 .l-app-header{height: 1.173333rem;}
 .l-app-footer{height: 1.306667rem;}
-
+/*sui mobile 本地化样式*/
 .l-bar-nav{background-color: #393a3e;color: #fff;}
+.l-bar-nav.bar:after{background-color: #555;}
 .l-bar-nav .title{color: #fff; font-size: 0.95rem;}
 .l-bar-nav .icon{color: #fff;}
-
 .l-bar-tab{background-color: #193f7c;color: #fff;}
 .l-bar-tab .tab-item{color: #fff;}
 .l-bar-tab .tab-item.active{background-color: #143263;color: #fff;}
+
+/*个人中心*/
+.l-panel-user{position:relative; z-index:0; height: 8.8rem;}
+.l-panel-user:before{
+  content: '';
+  position: absolute;
+  left:0; top:0; width:100%; height: 100%;
+  background-color: rgba(0,0,0, 0.5);
+}
+.l-panel-user-bg{
+  background: #666 no-repeat 50% 50%; background-size: cover;
+  position: absolute;
+  left:0; top:0; width:100%; height: 100%;
+  z-index: -1;
+  filter: blur(5px);
+}
