@@ -22,6 +22,7 @@
       <!-- 标题栏 -->
       <header class="bar bar-nav l-bar-nav">
         <a class="icon icon-left pull-left open-panel"></a>
+        <a class="icon icon-refresh pull-right"></a>
         <h1 class="title">个人中心</h1>
       </header>
       <!-- 工具栏 -->
@@ -45,27 +46,102 @@
       </nav>
       <!-- 这里是页面内容区 -->
       <div class="content">
-        <div class="l-panel-user">
+        <!-- user info -->
+        <div class="l-panel-user l-flex-v">
           <div class="l-panel-user-bg" style="background-image: url('../static/images/temp-001.jpg')"></div>
-          <div class="l-panel-user-bar l-flex-h">
-            <div class="l-rest">
-              
+          <div class="l-panel-user-avatar l-rest l-flex-vhc">
+            <i class="l-icon l-icon-qrcode" @click="this.showQrCode = true">&#xe62d;</i>
+            <div class="l-avatar" style="background-image: url('../static/images/temp-002.jpg')"></div>
+            <h3>胡杨树</h3>
+            <p class="l-fs-s"><i class="l-icon">&#xe610;</i>&nbsp;<span>金牌会员</span></p>
+          </div>
+          <div class="l-panel-user-bar l-flex-h l-border-t l-fs-s">
+            <div class="l-rest l-flex-hvc l-border-r">
+              账户余额：<strong>3899.00</strong>
             </div>
-            <div class="l-rest">
-              
+            <div class="l-rest l-flex-hvc">
+              账户积分：<strong>3899.00</strong>
             </div>
-          </div>          
+          </div>  
         </div>
+        <!-- list -->
+        <div class="list-block l-list-block-user">
+          <div>
+            <a class="item-content item-link" href="user-taocan.html">
+              <div class="item-media"><i class="l-icon">&#xe673;</i></div>
+              <div class="item-inner">
+                <div class="item-title">套餐</div>
+              </div>
+            </a>
+            <a class="item-content item-link" href="user-coupons.html">
+              <div class="item-media"><i class="l-icon">&#xe611;</i></div>
+              <div class="item-inner">
+                <div class="item-title">优惠券</div>
+              </div>
+            </a>
+            <a class="item-content item-link">
+              <div class="item-media"><i class="l-icon">&#xe600;</i></div>
+              <div class="item-inner">
+                <div class="item-title">商品</div>
+              </div>
+            </a>
+            <a class="item-content item-link">
+              <div class="item-media"><i class="l-icon">&#xe662;</i></div>
+              <div class="item-inner">
+                <div class="item-title">门店</div>
+              </div>
+            </a>
+            <a class="item-content item-link">
+              <div class="item-media"><i class="l-icon">&#xe6cc;</i></div>
+              <div class="item-inner">
+                <div class="item-title">消费记录</div>
+              </div>
+            </a>
+            <a class="item-content item-link">
+              <div class="item-media"><i class="l-icon">&#xe638;</i></div>
+              <div class="item-inner">
+                <div class="item-title">分销记录</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="list-block l-list-block-user">
+          <div>
+            <a class="item-content item-link">
+              <div class="item-media"><i class="l-icon">&#xe62f;</i></div>
+              <div class="item-inner">
+                <div class="item-title">退出</div>
+              </div>
+            </a>
+          </div>
+        </div> 
       </div>
     </div>
+  </div>
+  <!-- 二维码弹窗 -->
+  <div class="l-layer l-flex-vhc" v-cloak v-show="showQrCode" transition="fade">
+    <div class="l-panel-user-qrcode">
+      <div class="l-flex-hc l-margin-b">
+        <div class="l-avatar l-margin-r" style="background-image: url('../static/images/temp-002.jpg')"></div>
+        <h3>胡杨树</h3>
+      </div>
+      <div class="l-qrcode l-bg-cover l-mask" style="background-image: url('../static/images/temp-001.jpg')">
+        <img src="../static/images/temp-003.jpg" alt="">
+      </div>
+    </div>
+    <i class="l-icon l-close-radius" @click="this.showQrCode = false">&#xe62e;</i>
   </div>
   <script src="../static/plugs/require.min.js" data-main="../static/js/main.js"></script>
   <script>
   // requireCallback作为requirejs的回调
-  function requireCallback($, utils) {
-    console.log($, utils)
+  function requireCallback($, utils, Vue) {
+    var vm = new Vue({
+      el: document.body,
+      data: {
+        showQrCode: false  // 显示二维码
+      }
+    })
   }
   </script>
 </body>
-
 </html>
