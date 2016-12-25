@@ -25,9 +25,145 @@
         <a class="icon icon-refresh pull-right"></a>
         <h1 class="title">商品支付</h1>
       </header>
+      <footer v-if="!showpay" class="l-page-footer l-flex-h l-border-t">
+        <a class="button button-fill l-btn l-btn-gray" style="width: 40%;" @click="orderCancel">取消订单</a>
+        <a class="button button-fill l-btn l-rest" @click="orderPay">支付订单</a>
+      </footer>
       <!-- 这里是页面内容区 -->
       <div class="content">
+        <!-- 订单信息 -->
+        <div class="l-panel-title l-border-b">
+          <h3>订单信息</h3>
+        </div>
+        <div class="l-panel-content l-padding l-margin-b">
+          <table class="l-text-table">
+            <tr>
+              <td>订&ensp;单&ensp;号：</td>
+              <td>339293939203022</td>
+            </tr>
+            <tr>
+              <td>订单金额：</td>
+              <td>50.00元</td>
+            </tr>
+            <tr>
+              <td>创建时间：</td>
+              <td>2016-12-10 12:30:20</td>
+            </tr>
+            <tr>
+              <td>当前状态：</td>
+              <td>待支付</td>
+            </tr>
+            <tr>
+              <td>客服电话：</td>
+              <td>400-8200000</td>
+            </tr>
+          </table>
+        </div>
+        <!-- 订单信息 end-->
         
+        <div v-if="!showpay">
+          <!-- 商品信息 -->
+          <div class="l-panel-title">
+            <h3>商品信息</h3>
+          </div>
+          <!-- 列表 -->
+          <div class="l-user-good-bd l-flex-h l-border-t">
+            <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=16&bg=ebebeb&txtclr=999&txt=100x100&w=100&h=100">
+            <div class="l-rest l-flex-v">
+              <div class="l-rest">
+                <h4 class="l-text-clamp">地方了发动机里看到寄过来的空间隔离开关的广泛的了感觉到了地方了发动机里看到寄过来的空间隔离开关的</h4>
+              </div>
+              <p>
+                <span class="pull-right">x1</span>
+                <span class="l-text-warn"><i class="l-icon">&#xe6cb;</i>200.00</span>
+              </p>
+            </div>
+          </div>
+          <div class="l-user-good-bd l-flex-h l-border-t">
+            <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=16&bg=ebebeb&txtclr=999&txt=100x100&w=100&h=100">
+            <div class="l-rest l-flex-v">
+              <div class="l-rest">
+                <h4 class="l-text-clamp">地方了发动机里看到寄过来的空间隔离开关的广泛的了感觉到了地方了发动机里看到寄过来的空间隔离开关的</h4>
+              </div>
+              <p>
+                <span class="pull-right">x1</span>
+                <span class="l-text-warn"><i class="l-icon">&#xe6cb;</i>200.00</span>
+              </p>
+            </div>
+          </div>
+          <div class="l-user-good-bd l-flex-h l-border-t">
+            <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=16&bg=ebebeb&txtclr=999&txt=100x100&w=100&h=100">
+            <div class="l-rest l-flex-v">
+              <div class="l-rest">
+                <h4 class="l-text-clamp">地方了发动机里看到寄过来的空间隔离开关的广泛的了感觉到了地方了发动机里看到寄过来的空间隔离开关的</h4>
+              </div>
+              <p>
+                <span class="pull-right">x1</span>
+                <span class="l-text-warn"><i class="l-icon">&#xe6cb;</i>200.00</span>
+              </p>
+            </div>
+          </div>
+          <!-- 列表 end-->
+          <!-- 商品信息 end-->
+
+          <!-- 取货门店 -->
+          <div class="l-panel-title l-border-b l-margin-t">
+            <h3>取货门店</h3>
+          </div>
+          <div class="l-store-item l-margin-b">
+            <a class="l-store-item-bd l-flex-h" href="store-details.html">
+              <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=ebebeb&txtclr=999&txt=120x120&w=120&h=120">
+              <div class="l-rest l-flex-v">
+                <div class="l-rest">
+                  <span class="pull-right l-fs-s l-text-gray"><i class="l-icon">&#xe634;</i>3.8km</span>
+                  <h4>化州店</h4>
+                </div>
+                <p>番禺区新胶东路的方式看见对方333号</p>
+              </div>
+            </a>
+            <div class="l-store-item-ft l-flex-h l-border-t">
+              <div class="l-rest l-flex-hvc l-border-r">
+                <i class="l-icon">&#xe640;</i><span>&ensp;电话</span>
+              </div>
+              <div class="l-rest l-flex-hvc">
+                <i class="l-icon">&#xe601;</i><span>&ensp;导航</span>
+              </div>
+            </div>
+          </div>
+          <!-- 取货门店 end-->
+        </div>
+        <!-- 支付方式 -->
+        <div  v-if="showpay">
+          <div class="l-panel-title l-border-b l-margin-t">
+            <h3>支付方式</h3>
+          </div>
+          <div class="list-block media-list">
+            <ul>
+              <li>
+                <label class="label-checkbox item-content">
+                  <input type="radio" name="pay-way" value="个人钱包" v-model="payway">
+                  <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                  <div class="item-inner">
+                    <i class="l-icon-fill">&#xe62c;</i>&ensp;&ensp;个人钱包
+                  </div>
+                </label>
+              </li>
+              <li>
+                <label class="label-checkbox item-content">
+                  <input type="radio" name="pay-way" value="微信支付" v-model="payway">
+                  <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                  <div class="item-inner">
+                    <i class="l-icon-fill-wx">&#xe66f;</i>&ensp;&ensp;微信支付
+                  </div>
+                </label>
+              </li>
+            </ul>
+          </div>
+          <div class="l-margin">
+            <a class="button button-fill l-btn l-rest" @click="surePay">确定支付</a>  
+          </div>
+        </div>
+        <!-- 支付方式 end-->
       </div>
     </div>
   </div>
@@ -38,7 +174,21 @@
     var vm = new Vue({
       el: document.body,
       data: {
-        
+        showpay: false,
+        payway: '个人钱包'
+      },
+      methods: {
+        orderCancel: function(){
+          $.confirm('取消订单商品将放于我的-商品-待支付中', '是否取消订单', function () {
+            window.history.back();
+          });
+        },
+        orderPay: function(){
+          this.showpay = true;
+        },
+        surePay: function(){
+          $.alert(this.payway);
+        }
       }
     })
   }
