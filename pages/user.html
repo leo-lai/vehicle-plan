@@ -14,11 +14,10 @@
   <link rel="shortcut icon" href="../static/favicon.ico" />
   <title>车方案</title>
 </head>
-
 <body>
   <div class="page-group">
     <!-- 单个page ,第一个.page默认被展示-->
-    <div class="page">
+    <div class="page disable-router">
       <!-- 标题栏 -->
       <header class="bar bar-nav l-bar-nav">
         <a class="icon icon-left pull-left open-panel"></a>
@@ -79,25 +78,25 @@
                 <div class="item-title">优惠券</div>
               </div>
             </a>
-            <a class="item-content item-link">
+            <a class="item-content item-link" href="user-goods.html">
               <div class="item-media"><i class="l-icon">&#xe600;</i></div>
               <div class="item-inner">
                 <div class="item-title">商品</div>
               </div>
             </a>
-            <a class="item-content item-link">
+            <a class="item-content item-link" href="store-list.html">
               <div class="item-media"><i class="l-icon">&#xe662;</i></div>
               <div class="item-inner">
                 <div class="item-title">门店</div>
               </div>
             </a>
-            <a class="item-content item-link">
+            <a class="item-content item-link" href="user-buy-records.html">
               <div class="item-media"><i class="l-icon">&#xe6cc;</i></div>
               <div class="item-inner">
                 <div class="item-title">消费记录</div>
               </div>
             </a>
-            <a class="item-content item-link">
+            <a class="item-content item-link" href="user-agent-records.html">
               <div class="item-media"><i class="l-icon">&#xe638;</i></div>
               <div class="item-inner">
                 <div class="item-title">分销记录</div>
@@ -107,7 +106,7 @@
         </div>
         <div class="list-block l-list-block-user">
           <div>
-            <a class="item-content item-link">
+            <a class="item-content item-link" @click="exit">
               <div class="item-media"><i class="l-icon">&#xe62f;</i></div>
               <div class="item-inner">
                 <div class="item-title">退出</div>
@@ -139,6 +138,13 @@
       el: document.body,
       data: {
         showQrCode: false  // 显示二维码
+      },
+      methods: {
+        exit: function(){
+          $.confirm('是否退出？', function(){
+            console.log('yes')
+          })
+        }
       }
     })
   }

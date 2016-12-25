@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="车方案">
+  <meta name="description" content="车方案">
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="renderer" content="webkit">
+  <meta name="format-detection" content="telephone=no,email=no">
+  <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
+  <link rel="stylesheet" href="../static/css/webapp.css">
+  <link rel="shortcut icon" href="../static/favicon.ico" />
+  <title>车方案</title>
+</head>
+
+<body>
+  <div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page disable-router">
+      <!-- 标题栏 -->
+      <header class="bar bar-nav l-bar-nav">
+        <a class="icon icon-left pull-left open-panel"></a>
+        <a class="icon icon-refresh pull-right"></a>
+        <h1 class="title">商品评价</h1>
+      </header>
+      <footer class="l-page-footer">
+        <a class="button button-fill l-btn" @click="submit">提交评价</a>
+      </footer>
+      <!-- 这里是页面内容区 -->
+      <div class="content">
+        <div class="l-evaluate-content l-margin-b">
+          <textarea class="l-fs-s" v-model="formData.content">东西质量确实好，值得信赖，5分好评，下次再来！</textarea>
+          <div class="l-flex-hc l-evaluate-score">
+            <a class="button button-round l-rest l-margin-r" @click="selectScore(3)" :class="{'button-fill': formData.score === 3}">
+              <i class="l-icon">&#xe606;</i>好评
+            </a>
+            <a class="button button-round l-rest l-margin-r" @click="selectScore(2)" :class="{'button-fill': formData.score === 2}">
+              <i class="l-icon">&#xe70e;</i>中评
+            </a>
+            <a class="button button-round l-rest" @click="selectScore(1)" :class="{'button-fill': formData.score === 1}">
+              <i class="l-icon">&#xe8d6;</i>差评
+            </a>
+          </div>
+        </div>
+        <div class="l-panel-title">
+          <h3>商品信息</h3>
+        </div>
+        <!-- 列表 -->
+        <div class="l-user-good-bd l-flex-h l-border-t">
+          <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=16&bg=ebebeb&txtclr=999&txt=100x100&w=100&h=100">
+          <div class="l-rest l-flex-v">
+            <div class="l-rest">
+              <h4 class="l-text-clamp">地方了发动机里看到寄过来的空间隔离开关的广泛的了感觉到了地方了发动机里看到寄过来的空间隔离开关的</h4>
+            </div>
+            <p>
+              <span class="pull-right">x1</span>
+              <span class="l-text-warn"><i class="l-icon">&#xe6cb;</i>200.00</span>
+            </p>
+          </div>
+        </div>
+        <div class="l-user-good-bd l-flex-h l-border-t">
+          <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=16&bg=ebebeb&txtclr=999&txt=100x100&w=100&h=100">
+          <div class="l-rest l-flex-v">
+            <div class="l-rest">
+              <h4 class="l-text-clamp">地方了发动机里看到寄过来的空间隔离开关的广泛的了感觉到了地方了发动机里看到寄过来的空间隔离开关的</h4>
+            </div>
+            <p>
+              <span class="pull-right">x1</span>
+              <span class="l-text-warn"><i class="l-icon">&#xe6cb;</i>200.00</span>
+            </p>
+          </div>
+        </div>
+        <div class="l-user-good-bd l-flex-h l-border-t">
+          <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=16&bg=ebebeb&txtclr=999&txt=100x100&w=100&h=100">
+          <div class="l-rest l-flex-v">
+            <div class="l-rest">
+              <h4 class="l-text-clamp">地方了发动机里看到寄过来的空间隔离开关的广泛的了感觉到了地方了发动机里看到寄过来的空间隔离开关的</h4>
+            </div>
+            <p>
+              <span class="pull-right">x1</span>
+              <span class="l-text-warn"><i class="l-icon">&#xe6cb;</i>200.00</span>
+            </p>
+          </div>
+        </div>
+        <!-- 列表 end-->
+      </div>
+    </div>
+  </div>
+  <script src="../static/plugs/require.min.js" data-main="../static/js/main.js"></script>
+  <script>
+  // requireCallback作为requirejs的回调
+  function requireCallback($, utils, Vue) {
+    var vm = new Vue({
+      el: document.body,
+      data: {
+        scoreText: [
+          '东西质量一般般，不满意，差评！',
+          '东西质量还不错，值得信赖，中评，下次再来！',
+          '东西质量确实好，值得信赖，好评，推荐给朋友！'
+        ],
+        formData:{
+          score: 3,
+          content: ''
+        }
+      },
+      methods: {
+        selectScore: function(score){
+          score = score || 3;
+          this.formData.score = score;
+          this.formData.content = this.scoreText[score-1]
+        },
+        submit: function(){
+          if(!this.formData.score){
+            utils.toptip('请选择一个评价');
+            return;
+          }
+          if(!this.formData.content){
+            utils.toptip('请填写评价内容');
+            return;
+          }
+
+          $.toast('评价成功', 2000, 'l-toast');
+          setTimeout(function(){
+            window.history.back()
+          }, 2000);
+        }
+      }
+    });
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="车方案">
+  <meta name="description" content="车方案">
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="renderer" content="webkit">
+  <meta name="format-detection" content="telephone=no,email=no">
+  <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
+  <link rel="stylesheet" href="../static/css/webapp.css">
+  <link rel="shortcut icon" href="../static/favicon.ico" />
+  <title>车方案</title>
+</head>
+
+<body>
+  <div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page disable-router">
+      <!-- 标题栏 -->
+      <header class="bar bar-nav l-bar-nav">
+        <a class="icon icon-left pull-left open-panel"></a>
+        <a class="icon icon-refresh pull-right"></a>
+        <h1 class="title">消费记录明细</h1>
+      </header>
+      <!-- 这里是页面内容区 -->
+      <div class="content">
+        <!-- 列表 -->
+        <div class="l-buy-details">
+          <div class="l-table">
+            <div class="l-table-tr l-flex-h l-border-b">
+              <div class="l-table-td">消费单号：</div>
+              <div class="l-table-td l-rest">1456465454132132322</div>
+            </div>
+            <div class="l-table-tr l-flex-h l-border-b">
+              <div class="l-table-td">消费项目：</div>
+              <div class="l-table-td l-rest">
+                <p>
+                  <span class="pull-right l-text-warn"><i class="l-icon">&#xe6cb;</i>200.00</span>
+                  <span>普通洗车</span>
+                </p>
+                <p>
+                  <span class="pull-right l-text-warn"><i class="l-icon">&#xe6cb;</i>200.00</span>
+                  <span>维修钣喷</span>
+                </p>
+                <p>
+                  <span class="pull-right l-text-warn"><i class="l-icon">&#xe6cb;</i>200.00</span>
+                  <span>更换雨刮片</span>
+                </p>
+              </div>
+            </div>
+            <div class="l-table-tr l-flex-h">
+              <div class="l-table-td">订单优惠：</div>
+              <div class="l-table-td l-rest">
+                <p>
+                  <span class="pull-right"><i class="l-icon">&#xe6cb;</i>200.00</span>
+                  <span>普通洗车券</span>
+                </p>
+                <p>
+                  <span class="pull-right"><i class="l-icon">&#xe6cb;</i>200.00</span>
+                  <span>高级套餐券</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 列表 end-->
+      </div>
+    </div>
+  </div>
+  <script src="../static/plugs/require.min.js" data-main="../static/js/main.js"></script>
+  <script>
+  // requireCallback作为requirejs的回调
+  function requireCallback($, utils, Vue) {
+    var vm = new Vue({
+      el: document.body,
+      data: {
+        
+      }
+    })
+  }
+  </script>
+</body>
+</html>

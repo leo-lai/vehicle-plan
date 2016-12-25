@@ -11,15 +11,15 @@ define(function(){
 
   /*utils********************************/
   var class2type = (function(){
-    var ret = {}
-    'Boolean Number String Function Array Date RegExp Object Error'.split(' ').forEach((name) => {
+    var ret = {};
+    'Boolean Number String Function Array Date RegExp Object Error'.split(' ').forEach(function(name){
       ret[ '[object ' + name + ']' ] = name.toLowerCase();
-    })
-    return ret
+    });
+    return ret;
   })();
   var utils = {
-    noop(){},
-    extend(target, ...objs) {
+    noop: function(){},
+    extend: function(target, ...objs) {
       if(!utils.isPlainObject(target)) return null
       objs.forEach((obj) => {
         if(utils.isPlainObject(obj)){
@@ -32,7 +32,7 @@ define(function(){
       })
       return target
     },
-    type(value) {
+    type: function(value) {
       //如果是null或者undefined，直接转成String返回
       if( value == null )  return String( value )
       //RegExp，Array等都属于Object
@@ -41,7 +41,7 @@ define(function(){
       return typeof value === 'object' || typeof value === 'function' ?
         class2type[ class2type.toString.call(value) ] || 'object' : typeof value
     },
-    isPlainObject(obj){
+    isPlainObject: function(obj){
       // Must be an Object.
       // Because of IE, we also have to check the presence of the constructor property.
       // Make sure that DOM nodes and window objects don't pass through, as well
@@ -61,30 +61,33 @@ define(function(){
       }
       // Own properties are enumerated firstly, so to speed up,
       // if last one is own, then all properties are own.
-      let key = undefined
+      var key = undefined;
       for ( key in obj ) {}
       return key === undefined || class2type.hasOwnProperty.call( obj, key );
     },
-    isEmptyObject(obj) {
-      for ( let key in obj ) {
-        return false
+    isEmptyObject: function(obj) {
+      for ( var key in obj ) {
+        return false;
       }
-      return true
+      return true;
     },
-    isFunction(obj){
-      return utils.type(obj) === 'function'
+    isFunction: function(obj){
+      return utils.type(obj) === 'function';
     },
     isArray: Array.isArray || function(obj) {
-      return utils.type(obj) === 'array'
+      return utils.type(obj) === 'array';
     },
-    isWindow(obj) {
-      return obj != null && obj == obj.window
+    isWindow: function(obj) {
+      return obj != null && obj == obj.window;
     },
-    isString(value) {
-      return typeof value === 'string'
+    isString: function(value) {
+      return typeof value === 'string';
     },
-    isNumber(value) {
-      return !isNaN( parseFloat(value) ) && isFinite( value )
+    isNumber: function(value) {
+      return !isNaN( parseFloat(value) ) && isFinite( value );
+    },
+    toptip: function(text) {
+      alert(text);
     }
   };
 
@@ -104,7 +107,7 @@ define(function(){
         if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey))  return false
 
         sKey = STORE_PREFIX + sKey
-        let sExpires = ''
+        var sExpires = ''
         if (vEnd) {
           switch (vEnd.constructor) {
             case Number: // 单位秒
@@ -133,8 +136,8 @@ define(function(){
         return (new RegExp('(?:^|;\\s*)' + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=')).test(document.cookie)
       },
       keys() {
-        let aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, '').split(/\s*(?:\=[^;]*)?;\s*/)
-        for (let nLen = aKeys.length, nIdx = 0; nIdx < nLen; nIdx++) { aKeys[nIdx] = decodeURIComponent(aKeys[nIdx]) }
+        var aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, '').split(/\s*(?:\=[^;]*)?;\s*/)
+        for (var nLen = aKeys.length, nIdx = 0; nIdx < nLen; nIdx++) { aKeys[nIdx] = decodeURIComponent(aKeys[nIdx]) }
         return aKeys
       }
     },
@@ -153,7 +156,7 @@ define(function(){
         if(!key) return false
         
         key = STORE_PREFIX + key
-        let newValue = {
+        var newValue = {
           value: value,
           expires: seconds,
           time: new Date().getTime()
@@ -164,7 +167,7 @@ define(function(){
         if(!key) return null
         key = STORE_PREFIX + key
         
-        let value = JSON.parse(window.localStorage.getItem(key))
+        var value = JSON.parse(window.localStorage.getItem(key))
         if (value && (new Date().getTime() - value.time < value.expires)) {
           value = value.value
         }else{
@@ -180,15 +183,15 @@ define(function(){
     getArgs(url) {
       if(typeof url !== 'string') url = window.location.href
       url = decodeURIComponent(url)
-      let pos = url.indexOf('?'),
+      var pos = url.indexOf('?'),
         pos2 = url.lastIndexOf('#'),
         qs = pos > -1 ? url.substring(pos+1, pos2 <= pos ? url.length : pos2) : '',
         items = qs.split('&')
-      let args = {},
+      var args = {},
         arg = null, 
         name = null,
         value = null
-      for(let i=0, splitPos = 0, item=null; i<items.length; i++){
+      for(var i=0, splitPos = 0, item=null; i<items.length; i++){
         item = items[i]
         splitPos = item.indexOf('=')
         name  = item.substring(0, splitPos)
@@ -199,7 +202,7 @@ define(function(){
     },
     setArgs(url, name, value) {
       if(typeof url !== 'string') return ''
-      let urlArgs = utils.url.getArgs(url),
+      var urlArgs = utils.url.getArgs(url),
         params = []
 
       if(utils.isPlainObject(name)){
@@ -208,9 +211,9 @@ define(function(){
         urlArgs[name] = value
       }
 
-      let hash = ''
-      for(let key of Object.keys(urlArgs)){
-        let val = urlArgs[key]
+      var hash = ''
+      for(var key of Object.keys(urlArgs)){
+        var val = urlArgs[key]
         if(val != undefined && val !== ''){
           if(key === '_hash'){
             hash = val;

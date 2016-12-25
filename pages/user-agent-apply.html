@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="车方案">
+  <meta name="description" content="车方案">
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="renderer" content="webkit">
+  <meta name="format-detection" content="telephone=no,email=no">
+  <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
+  <link rel="stylesheet" href="../static/css/webapp.css">
+  <link rel="shortcut icon" href="../static/favicon.ico" />
+  <title>车方案</title>
+</head>
+
+<body>
+  <div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page disable-router">
+      <!-- 标题栏 -->
+      <header class="bar bar-nav l-bar-nav">
+        <a class="icon icon-left pull-left open-panel"></a>
+        <a class="icon icon-refresh pull-right"></a>
+        <h1 class="title">分销申请</h1>
+      </header>
+      <!-- 这里是页面内容区 -->
+      <div class="content">
+        <div class="list-block" style="margin:0;">
+          <ul>
+            <!-- Text inputs -->
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">真实姓名</div>
+                  <div class="item-input">
+                    <input type="text" placeholder="请填写您的姓名" v-model="formData.name">
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">手机号码</div>
+                  <div class="item-input">
+                    <input type="tel" placeholder="请填写您的手机号码" v-model="formData.mobilePhone">
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="l-margin">
+          <a class="button button-fill l-btn" @click="submit">提交申请</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../static/plugs/require.min.js" data-main="../static/js/main.js"></script>
+  <script>
+  // requireCallback作为requirejs的回调
+  function requireCallback($, utils, Vue) {
+    var vm = new Vue({
+      el: document.body,
+      data: {
+        formData: {
+          name: '',
+          mobilePhone: ''
+        }
+      },
+      methods: {
+        submit: function() {
+          if(!this.formData.name){
+            utils.toptip('请填写您的姓名');
+            return;
+          }
+
+          if(!this.formData.mobilePhone){
+            utils.toptip('请填写您的手机号码');
+            return;
+          }
+          $.alert('提交申请成功，请耐心等待审核', function(){
+            // 跳转
+            window.history.back();
+          })
+        }
+      }
+    })
+  }
+  </script>
+</body>
+</html>

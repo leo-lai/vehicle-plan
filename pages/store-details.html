@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="车方案">
+  <meta name="description" content="车方案">
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="renderer" content="webkit">
+  <meta name="format-detection" content="telephone=no,email=no">
+  <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
+  <link rel="stylesheet" href="../static/css/webapp.css">
+  <link rel="shortcut icon" href="../static/favicon.ico" />
+  <title>车方案</title>
+</head>
+
+<body>
+  <div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page" id="page-store-details">
+      <!-- 标题栏 -->
+      <header class="bar bar-nav l-bar-nav">
+        <a class="icon icon-left pull-left open-panel"></a>
+        <a class="icon icon-refresh pull-right"></a>
+        <h1 class="title">门店详情</h1>
+      </header>
+      <!-- 这里是页面内容区 -->
+      <div class="content">
+        <!-- Slider -->
+        <div class="swiper-container" data-space-between='10'>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="https://placeholdit.imgix.net/~text?txtsize=32&bg=ccc&txtclr=ebebeb&txt=720x300&w=720&h=300" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img src="https://placeholdit.imgix.net/~text?txtsize=32&bg=ccc&txtclr=ebebeb&txt=720x300&w=720&h=300" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img src="https://placeholdit.imgix.net/~text?txtsize=32&bg=ccc&txtclr=ebebeb&txt=720x300&w=720&h=300" alt="">
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <!-- Slider end-->
+        <div class="l-margin-b">
+          <div class="l-panel-title l-border-b">
+            <h3>门店描述</h3>
+          </div>
+          <div class="l-panel-content l-padding">
+            门店描述失联飞机善良劫匪失联客机炼金狂士地方了坚实的离开积分斯蒂兰卡发接收到了空间疯了快圣诞节分类看电视剧分类考试的缴费了看电视剧发了肯德基了大开杀戒付款了圣诞节饭了看电视剧分类看电视剧发凉快圣诞节
+          </div>
+        </div>
+        <div class="l-margin-b">
+          <div class="l-panel-title l-border-b">
+            <a href="#" class="button pull-right"><i class="l-icon">&#xe601;</i>&ensp;导航</a>
+            <h3>详细地址</h3>
+          </div>
+          <div class="l-panel-content l-padding">
+            番禺区新胶东路的方式看见对方333号
+          </div>
+        </div>
+        <div class="l-margin-b">
+          <div class="l-panel-title l-border-b">
+            <a href="#" class="button pull-right"><i class="l-icon">&#xe640;</i>&ensp;导航</a>
+            <h3>门店电话</h3>
+          </div>
+          <div class="l-panel-content l-padding">
+            020-888888
+          </div>
+        </div>
+        <div class="l-margin-b">
+          <div class="l-panel-title l-border-b">
+            <h3>营业时间</h3>
+          </div>
+          <div class="l-panel-content l-padding">
+           08:00 - 18:00
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../static/plugs/require.min.js" data-main="../static/js/main.js"></script>
+  <script>
+  // requireCallback作为requirejs的回调
+  function requireCallback($, utils, Vue) {
+    // $.reinitSwiper('page-store-details');
+    $('.swiper-container').swiper({
+
+    });
+    var vm = new Vue({
+      el: document.body,
+      data: {
+        
+      }
+    })
+  }
+  </script>
+</body>
+</html>
