@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="车方案">
+  <meta name="description" content="车方案">
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="renderer" content="webkit">
+  <meta name="format-detection" content="telephone=no,email=no">
+  <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
+  <link rel="stylesheet" href="../static/css/webapp.css">
+  <link rel="shortcut icon" href="../static/favicon.ico" />
+  <title>车方案</title>
+</head>
+
+<body>
+  <div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page disable-router">
+      <!-- 标题栏 -->
+      <header class="bar bar-nav l-bar-nav">
+        <a class="icon icon-left pull-left open-panel"></a>
+        <a class="icon icon-refresh pull-right"></a>
+        <h1 class="title">登录</h1>
+      </header>
+      <!-- 这里是页面内容区 -->
+      <div class="content">
+        <div class="l-login l-bg-cover" style="background-image: url('../static/images/img-010.jpg')">
+          <div class="l-avatar" style="background-image: url('../static/images/temp-002.jpg')"></div>
+          <div class="l-login-form">
+            <div class="l-login-ipt l-flex-hc">
+              <i class="l-icon">&#xe626;</i>
+              <input class="l-rest" type="tel" placeholder="请输入手机号码" v-model="formData.mobilePhone">
+            </div>
+            <div class="l-login-ipt l-flex-hc">
+              <i class="l-icon">&#xe644;</i>
+              <input class="l-rest" type="tel" placeholder="请输入手机验证码" v-model="formData.authCode">
+              <a class="button button-fill l-btn" @click="sendAuthCode" v-text="sendBtnText">获取验证码</a>
+            </div>
+            <div class="l-margin">
+              <a class="button button-fill l-btn" @click="submit">登录</a>
+            </div>
+            <p class="l-margin-0">
+              没有收到短信验证码？
+              <span style="text-decoration: underline;">使用语音验证码</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../static/plugs/require.min.js" data-main="../static/js/main.js"></script>
+  <script>
+  // requireCallback作为requirejs的回调
+  function requireCallback($, utils, Vue) {
+    var timeid = null;
+    var timeout = 60;
+    var vm = new Vue({
+      el: document.body,
+      data: {
+        sendBtnText: '获取验证码',
+        sent: false,
+        formData: {
+          mobilePhone: '',
+          authCode: ''
+        }
+      },
+      methods: {
+        sendAuthCode: function(){
+          var self = this;
+          if(!self.sent){
+            self.sent = true;
+            timeid = setInterval(function(){
+              if(--timeout > 0){
+                self.sendBtnText = timeout;
+              }else{
+                clearInterval(timeid);
+                self.sendBtnText = '重新获取';
+                self.sent = false;
+              }
+            }, 1000)
+
+            $.toast('验证码已发送到您的手机上', 2000, 'l-toast');
+          }
+        },
+        submit: function(){
+          if(!this.formData.mobilePhone){
+            $.toptip('请输入手机号码');
+            return;
+          }
+
+          if(!this.formData.authCode){
+            $.toptip('请输入手机验证码');
+            return;
+          }
+
+          $.showIndicator();
+          setTimeout(function () {
+            $.hideIndicator();
+            $.toast('登录成功', 2000, 'l-toast');
+            window.location.replace('index.html')
+          }, 2000);
+        }
+      }
+    });
+  }
+  </script>
+</body>
+
+</html>

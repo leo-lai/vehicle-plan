@@ -73,12 +73,12 @@
       methods: {
         submit: function() {
           if(!this.formData.name){
-            utils.toptip('请填写您的姓名');
+            $.toptip('请填写您的姓名');
             return;
           }
 
           if(!this.formData.mobilePhone){
-            utils.toptip('请填写您的手机号码');
+            $.toptip('请填写您的手机号码');
             return;
           }
           $.alert('提交申请成功，请耐心等待审核', function(){

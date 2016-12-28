@@ -87,7 +87,7 @@ define(function(){
       return !isNaN( parseFloat(value) ) && isFinite( value );
     },
     toptip: function(text) {
-      alert(text);
+      window.alert(text);
     }
   };
 
