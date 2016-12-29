@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="../static/css/webapp.css">
   <link rel="shortcut icon" href="../static/favicon.ico" />
   <title>车方案</title>
+  <style>
+  .bar-tab-secondary .l-btn{margin: 0 -0.5rem 0 0;width: 4.7rem;}
+  </style>
 </head>
 
 <body>
@@ -24,6 +27,18 @@
         <a class="icon icon-left pull-left open-panel"></a>
         <h1 class="title">购物车</h1>
       </header>
+      <div class="bar bar-tab-secondary l-flex-hc" style="z-index:100;">
+        <label class="l-checkbox">
+          <input type="checkbox" v-model="checkAll">
+          <i class="l-icon l-icon-radio"></i>
+          <span>全选</span>
+        </label>
+        <div class="l-rest l-center">
+          合计：<span class="l-text-warn"><i class="l-icon">&#xe6cb;</i>200.00</span>
+        </div>
+        <a v-if="!isEdit" class="button button-fill l-btn">去结算</a>
+        <a v-else class="button button-fill l-btn l-btn-error">删除</a>
+      </div>
       <!-- 工具栏 -->
       <nav class="bar bar-tab l-bar-tab">
         <a class="tab-item external" href="index.html">
@@ -44,16 +59,79 @@
         </a>
       </nav>
       <!-- 这里是页面内容区 -->
-      <div class="content">
-        <div class="content-block">这里是content</div>
+      <div class="content" >
+        <div class="l-shopcar-hd l-flex-hc l-border-b">
+          <div class="l-rest"></div>
+          <a @click="edit" v-text="isEdit ? '完成': '编辑'">编辑</a>
+        </div>
+        <!-- 列表 -->
+        <div class="l-shopcar-list">
+          <div class="l-shopcar-item l-flex-h l-border-b">
+            <label class="l-checkbox">
+              <input type="checkbox" :checked="checkAll">
+              <i class="l-icon l-icon-radio"></i>
+            </label>
+            <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=ebebeb&txtclr=999&txt=120x120&w=120&h=120">
+            <div class="l-rest">
+              <h4 class="l-text-clamp">商品名称商品名称商</h4>
+              <div class="l-shopcar-item-disc">
+                <span v-if="!isEdit" class="pull-right l-num">x1</span>
+                <span v-else class="pull-right l-number">
+                  <i class="l-icon">&#xe635;</i>
+                  <input type="tel" value="1">
+                  <i class="l-icon">&#xe62a;</i>
+                </span>
+                <span class="l-text-warn">
+                  <i class="l-icon">&#xe6cb;</i>200.00
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="l-shopcar-item l-flex-h l-border-b">
+            <label class="l-checkbox">
+              <input type="checkbox" :checked="checkAll">
+              <i class="l-icon l-icon-radio"></i>
+            </label>
+            <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=ebebeb&txtclr=999&txt=120x120&w=120&h=120">
+            <div class="l-rest">
+              <h4 class="l-text-clamp">商品名称商品名称商</h4>
+              <div class="l-shopcar-item-disc">
+                <span v-if="!isEdit" class="pull-right l-num">x1</span>
+                <span v-else class="pull-right l-number">
+                  <i class="l-icon">&#xe635;</i>
+                  <input type="tel" value="1">
+                  <i class="l-icon">&#xe62a;</i>
+                </span>
+                <span class="l-text-warn">
+                  <i class="l-icon">&#xe6cb;</i>200.00
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 列表 end-->
       </div>
     </div>
   </div>
   <script src="../static/plugs/require.min.js" data-main="../static/js/main.js"></script>
   <script>
   // requireCallback作为requirejs的回调
-  function requireCallback($, utils) {
-    console.log($, utils)
+  function requireCallback($, utils, Vue) {
+    var vm = new Vue({
+      el: document.body,
+      data: {
+        isEdit: false,
+        checkAll: false
+      },
+      methods: {
+        edit: function(){
+          this.isEdit = !this.isEdit;
+        },
+        del: function(){
+
+        }
+      }
+    });
   }
   </script>
 </body>
