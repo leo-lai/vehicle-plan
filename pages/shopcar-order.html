@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="车方案">
+  <meta name="description" content="车方案">
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="renderer" content="webkit">
+  <meta name="format-detection" content="telephone=no,email=no">
+  <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
+  <link rel="stylesheet" href="../static/css/webapp.css">
+  <link rel="shortcut icon" href="../static/favicon.ico" />
+  <title>车方案</title>
+  <style>
+  .bar-tab-secondary .l-btn{margin: 0 -0.5rem 0 0;width: 4.7rem;}
+  </style>
+</head>
+
+<body>
+  <div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page disable-router">
+      <!-- 标题栏 -->
+      <header class="bar bar-nav l-bar-nav">
+        <a class="icon icon-left pull-left open-panel"></a>
+        <h1 class="title">创建订单</h1>
+      </header>
+      <footer class="l-page-footer l-border-t l-flex-hc">
+        <div class="l-rest l-margin-l">
+          订单金额：<span class="l-text-warn"><i class="l-icon">&#xe6cb;</i>210.00</span>
+        </div>
+        <a class="button button-fill l-btn">&ensp;创建订单&ensp;</a>
+      </footer>
+      <!-- 这里是页面内容区 -->
+      <div class="content">
+        <!-- 购买的商品 -->
+        <div class="l-flex-h l-shopcar-order-list">
+          <div>
+            <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=ebebeb&txtclr=999&txt=120x120&w=120&h=120">
+            <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=ebebeb&txtclr=999&txt=120x120&w=120&h=120">
+            <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=ebebeb&txtclr=999&txt=120x120&w=120&h=120">
+            <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=ebebeb&txtclr=999&txt=120x120&w=120&h=120">
+            <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=ebebeb&txtclr=999&txt=120x120&w=120&h=120">
+          </div>
+          <div class="l-rest l-text-right">
+            <a class="button l-inline">查看</a>
+            <p class="l-fs-s" style="margin: 0.5rem 0 0 0;">共&ensp;3&ensp;件</p>
+          </div>
+        </div>
+        <!-- 购买的商品 end-->
+
+        <!-- 配送方式 -->
+        <div class="list-block">
+          <ul>
+            <li class="item-link item-content">
+              <div class="item-inner">
+                <div class="item-title">配送方式</div>
+                <div class="item-after">
+                  <div class="item-input">
+                    <input class="l-text-right" id="delivery-way" type="text" placeholder="请选择" readonly value="到店自取">
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="item-content">
+              <div class="item-inner">
+                <div class="item-title">支持取货时间</div>
+                <div class="item-after">即可</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- 配送方式 end-->
+
+        <!-- 选择门店 -->
+        <div class="l-panel-title l-border-b">
+          <a class="button pull-right">更换</a>
+          <h3>选择门店</h3>
+        </div>
+        <div class="l-store-item l-margin-b">
+          <a class="l-store-item-bd l-flex-h" href="store-details.html">
+            <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=ebebeb&txtclr=999&txt=120x120&w=120&h=120">
+            <div class="l-rest l-flex-v">
+              <div class="l-rest">
+                <span class="pull-right l-fs-s l-text-gray"><i class="l-icon">&#xe634;</i>3.8km</span>
+                <h4>化州店</h4>
+              </div>
+              <p>番禺区新胶东路的方式看见对方333号</p>
+            </div>
+          </a>
+        </div>
+        <!-- 选择门店 end-->
+
+        <!-- 商品总价 -->
+        <div class="l-panel-title">
+          <span class="pull-right l-text-warn"><i class="l-icon">&#xe6cb;</i>220.00</span>
+          <h3>商品总价</h3>
+        </div>
+        <div class="l-discount-list l-margin-b">
+          <div class="l-flex-h l-padding l-border-t">
+            <label class="l-checkbox l-margin-r-s">
+              <input type="radio" name="discount" checked>
+              <i class="l-icon l-icon-radio"></i>
+            </label>
+            <div class="l-rest">
+              <h4 class="l-margin-0">使用积分抵扣</h4>
+              <p class="l-margin-0 l-fs-s">当前可用积分1000，可使用100积分抵扣10元</p>
+            </div>
+          </div>
+          <div class="l-flex-h l-padding l-border-t">
+            <label class="l-checkbox l-margin-r-s">
+              <input type="radio" name="discount">
+              <i class="l-icon l-icon-radio"></i>
+            </label>
+            <div class="l-rest">
+              <h4 class="l-margin-0">使用积分抵扣</h4>
+              <p class="l-margin-0 l-fs-s">当前可用积分1000，可使用100积分抵扣10元</p>
+            </div>
+          </div> 
+        </div>
+        <!-- 商品总价 end-->
+      </div>
+    </div>
+  </div>
+  <script src="../static/plugs/require.min.js" data-main="../static/js/main.js"></script>
+  <script>
+  // requireCallback作为requirejs的回调
+  function requireCallback($, utils, Vue) {
+    $("#delivery-way").picker({
+      toolbarTemplate: '<header class="bar bar-nav"><button class="button button-link pull-right close-picker">确定</button><h1 class="title">配送方式</h1></header>',
+      cols: [{
+        textAlign: 'center',
+        values: ['到店自取', '快递']
+      }]
+    });
+
+  }
+  </script>
+</body>
+
+</html>
