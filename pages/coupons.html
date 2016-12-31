@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="车方案">
+  <meta name="description" content="车方案">
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="renderer" content="webkit">
+  <meta name="format-detection" content="telephone=no,email=no">
+  <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
+  <link rel="stylesheet" href="../static/css/webapp.css">
+  <link rel="shortcut icon" href="../static/favicon.ico" />
+  <title>车方案</title>
+</head>
+
+<body>
+  <div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page disable-router">
+      <!-- 标题栏 -->
+      <header class="bar bar-nav l-bar-nav">
+        <a class="icon icon-left pull-left open-panel"></a>
+        <a class="icon icon-refresh pull-right"></a>
+        <h1 class="title">优惠中心</h1>
+      </header>
+      <!-- 这里是页面内容区 -->
+      <div class="content">
+        <!-- 列表 -->
+        <div class="l-coupon l-flex-h" v-for="item in 5">
+          <div class="l-coupon-value l-flex-vhc">
+            <span><i class="l-icon">&#xe6cb;</i>500</span>
+            <a class="button button-fill button-warning l-margin-t" @click="receive(item)">立即领取</a>
+          </div>
+          <div class="l-coupon-desc l-rest">
+            <i class="l-icon l-coupon-tip">&#xe639;</i>
+            <h4>工时抵扣券</h4>
+            <p class="l-fs-s">可以用于洗车、美容、钣金等你的分类数据量福建省</p>
+            <p class="l-fs-s" style="margin-top:0.75rem;">有效期至2017-12-20</p>
+          </div>
+        </div>
+        <!-- 列表 end-->
+      </div>
+    </div>
+  </div>
+  <script src="../static/plugs/require.min.js" data-main="../static/js/main.js"></script>
+  <script>
+  // requireCallback作为requirejs的回调
+  function requireCallback($, utils, Vue) {
+    var vm = new Vue({
+      el: document.body,
+      data: {
+        
+      },
+      methods: {
+        receive: function(item){
+          $.modal({
+            title:  '领取成功',
+            text: '请到我的-优惠券中查看',
+            buttons: [{
+                text: '返回'
+              },{
+                text: '查看',
+                bold: true,
+                onClick: function() {
+                  window.location.href = 'user-coupons.html'
+                }
+              }
+            ]
+          });
+        }
+      }
+    })
+  }
+  </script>
+</body>
+</html>

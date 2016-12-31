@@ -179,8 +179,19 @@
       },
       methods: {
         orderCancel: function(){
-          $.confirm('取消订单商品将放于我的-商品-待支付中', '是否取消订单', function () {
-            window.history.back();
+          $.modal({
+            title:  '是否取消订单',
+            text: '取消订单商品将放于我的-商品-待支付中',
+            buttons: [{
+                text: '否'
+              },{
+                text: '是',
+                bold: true,
+                onClick: function() {
+                  window.history.back();
+                }
+              }
+            ]
           });
         },
         orderPay: function(){
