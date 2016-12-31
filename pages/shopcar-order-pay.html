@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="车方案">
+  <meta name="description" content="车方案">
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="renderer" content="webkit">
+  <meta name="format-detection" content="telephone=no,email=no">
+  <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
+  <link rel="stylesheet" href="../static/css/webapp.css">
+  <link rel="shortcut icon" href="../static/favicon.ico" />
+  <title>车方案</title>
+</head>
+
+<body>
+  <div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page disable-router">
+      <!-- 标题栏 -->
+      <header class="bar bar-nav l-bar-nav">
+        <a class="icon icon-left pull-left open-panel"></a>
+        <a class="icon icon-refresh pull-right"></a>
+        <h1 class="title">订单支付</h1>
+      </header>
+      <!-- 这里是页面内容区 -->
+      <div class="content">
+        <!-- 订单信息 -->
+        <div class="l-panel-title l-border-b">
+          <h3>订单信息</h3>
+        </div>
+        <div class="l-panel-content l-padding l-margin-b">
+          <table class="l-text-table">
+            <tr>
+              <td>订&ensp;单&ensp;号：</td>
+              <td>339293939203022</td>
+            </tr>
+            <tr>
+              <td>订单金额：</td>
+              <td>50.00元</td>
+            </tr>
+            <tr>
+              <td>创建时间：</td>
+              <td>2016-12-10 12:30:20</td>
+            </tr>
+            <tr>
+              <td>当前状态：</td>
+              <td>待支付</td>
+            </tr>
+            <tr>
+              <td>客服电话：</td>
+              <td>400-8200000</td>
+            </tr>
+          </table>
+        </div>
+        <!-- 订单信息 end-->
+        
+        <!-- 支付方式 -->
+        <div>
+          <div class="l-panel-title l-border-b l-margin-t">
+            <h3>支付方式</h3>
+          </div>
+          <div class="list-block media-list">
+            <ul>
+              <li>
+                <label class="label-checkbox item-content">
+                  <input type="radio" name="pay-way" value="个人钱包" v-model="payway">
+                  <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                  <div class="item-inner">
+                    <i class="l-icon-fill">&#xe62c;</i>&ensp;&ensp;个人钱包
+                  </div>
+                </label>
+              </li>
+              <li>
+                <label class="label-checkbox item-content">
+                  <input type="radio" name="pay-way" value="微信支付" v-model="payway">
+                  <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                  <div class="item-inner">
+                    <i class="l-icon-fill-wx">&#xe66f;</i>&ensp;&ensp;微信支付
+                  </div>
+                </label>
+              </li>
+            </ul>
+          </div>
+          <div class="l-margin">
+            <a class="button button-fill l-btn l-rest" @click="surePay">确定支付</a>  
+          </div>
+        </div>
+        <!-- 支付方式 end-->
+      </div>
+    </div>
+  </div>
+  <script src="../static/plugs/require.min.js" data-main="../static/js/main.js"></script>
+  <script>
+  // requireCallback作为requirejs的回调
+  function requireCallback($, utils, Vue) {
+    var vm = new Vue({
+      el: document.body,
+      data: {
+        payway: '个人钱包'
+      },
+      methods: {
+        surePay: function(){
+          $.alert(this.payway);
+        }
+      }
+    })
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="车方案">
+  <meta name="description" content="车方案">
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="renderer" content="webkit">
+  <meta name="format-detection" content="telephone=no,email=no">
+  <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
+  <link rel="stylesheet" href="../static/css/webapp.css">
+  <link rel="shortcut icon" href="../static/favicon.ico" />
+  <title>车方案</title>
+</head>
+
+<body>
+  <div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page disable-router">
+      <!-- 标题栏 -->
+      <header class="bar bar-nav l-bar-nav">
+        <a class="icon icon-left pull-left open-panel"></a>
+        <a class="icon icon-refresh pull-right"></a>
+        <h1 class="title">车辆信息</h1>
+      </header>
+      <!-- 这里是页面内容区 -->
+      <div class="content">
+        <div class="list-block" style="margin:0;">
+          <ul>
+            <!-- Text inputs -->
+            <li>
+              <div class="item-content item-link">
+                <div class="item-inner">
+                  <div class="item-title label">车型</div>
+                  <div class="item-input">
+                    <input readonly type="text" placeholder="请选择">
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content item-link">
+                <div class="item-inner">
+                  <div class="item-title label">车辆信息</div>
+                  <div class="item-input">
+                    <input readonly type="text" placeholder="请选择">
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content l-allow-null">
+                <div class="item-inner">
+                  <div class="item-title label">车牌号码</div>
+                  <div class="l-car-prefix">粤A</div>
+                  <div class="item-input">
+                    <input type="tel" placeholder="请填写">
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content l-allow-null">
+                <div class="item-inner">
+                  <div class="item-title label">行驶里程</div>
+                  <div class="item-input">
+                    <input type="tel" placeholder="请填写">
+                  </div>
+                  <div class="item-after">km</div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content l-allow-null">
+                <div class="item-inner">
+                  <div class="item-title label">上路时间</div>
+                  <div class="item-input">
+                    <input id="date-on-road" type="text" placeholder="请选择" readonly>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content l-allow-null">
+                <div class="item-inner">
+                  <div class="item-title label">发动机号</div>
+                  <div class="item-input">
+                    <input type="tel" placeholder="请填写">
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content l-allow-null">
+                <div class="item-inner">
+                  <div class="item-title label">车架号</div>
+                  <div class="item-input">
+                    <input type="tel" placeholder="请填写">
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <p class="l-margin l-fs-s l-text-gray">注：如您需要查询并办理违章，则必须填写发动机号及车架号，千百十将保障您的信息安全。</p>
+        <div class="l-margin">
+          <a class="button button-fill l-btn">保存车辆信息</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../static/plugs/require.min.js" data-main="../static/js/main.js"></script>
+  <script>
+  // requireCallback作为requirejs的回调
+  function requireCallback($, utils, Vue) {
+    $('#date-on-road').calendar();
+  }
+  </script>
+</body>
+</html>

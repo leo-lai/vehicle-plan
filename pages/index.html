@@ -45,7 +45,72 @@
       </nav>
       <!-- 这里是页面内容区 -->
       <div class="content">
-        <div class="content-block">这里是content</div>
+        <!-- Slider -->
+        <div class="swiper-container" data-space-between='10'>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="../static/images/banner-001.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img src="../static/images/banner-001.jpg" alt="">
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <!-- Slider end-->
+
+        <!-- 车辆信息 -->
+        <div class="l-index-carinfo l-margin-b">
+          <!-- 没有车辆信息 -->
+          <div class="list-block l-margin-0">
+            <ul>
+              <li>
+                <a class="item-content item-link" href="car-info.html">
+                  <div class="item-media"><i class="l-icon l-fs-l">&#xe603;</i></div>
+                  <div class="item-inner">
+                    <div class="item-title">请添加您的车辆信息</div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- 已有车辆信息 -->
+          <div class="l-flex-h l-padding">
+            <img class="l-thumb-circle l-margin-r-s" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0894ec&txtclr=fff&txt=Logo&w=120&h=120">
+            <div class="l-rest l-margin-r-s">
+              <h4 class="l-margin-0 l-text-clamp">宝马 WRANGLER RUBICON 3.6L越野的飞机的扩大解放车</h4>
+              <p class="l-margin-0 l-fs-s l-text-gray">粤A 38343</p>  
+            </div>
+            <i class="l-icon">&#xe675;</i>
+          </div>
+        </div>
+        <!-- 车辆信息 end-->
+
+        <div class="l-flex-h l-bg">
+          <div class="l-rest l-padding l-border-r">
+            <div class="l-text-right">
+              <img style="width: 6.75rem;" src="../static/images/img-011.jpg">
+            </div>
+            <h3 style="margin-top: -1.0rem;">优惠中心</h3>
+            <p class="l-fs-s l-text-gray">优惠搭配，价低质优</p>
+          </div>
+          <div class="l-rest l-padding l-border-r">
+            <div class="l-text-right">
+              <img style="width: 6.75rem;" src="../static/images/img-012.jpg">
+            </div>
+            <h3 style="margin-top: -1.0rem;">套餐年卡</h3>
+            <p class="l-fs-s l-text-gray">优惠套餐，智能匹配</p>
+          </div>
+        </div>
+        <div class="l-flex-hc l-padding l-bg l-border-t l-margin-b">
+          <div class="l-rest l-margin-l">
+            <h3>特惠商城</h3>
+            <p class="l-fs-s l-text-gray">全网最低价汽车配件</p>
+          </div>
+          <div class="l-rest l-text-center">
+            <img style="width: 6.75rem;" src="../static/images/img-013.jpg">  
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -53,7 +118,9 @@
   <script>
   // requireCallback作为requirejs的回调
   function requireCallback($, utils) {
-    console.log($, utils)
+    $('.swiper-container').swiper({
+
+    });
   }
   </script>
 </body>
