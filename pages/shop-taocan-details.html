@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="车方案">
+  <meta name="description" content="车方案">
+  <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="renderer" content="webkit">
+  <meta name="format-detection" content="telephone=no,email=no">
+  <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
+  <link rel="stylesheet" href="../static/css/webapp.css">
+  <link rel="shortcut icon" href="../static/favicon.ico" />
+  <title>车方案</title>
+</head>
+
+<body>
+  <div class="page-group">
+    <!-- 单个page ,第一个.page默认被展示-->
+    <div class="page disable-router">
+      <!-- 标题栏 -->
+      <header class="bar bar-nav l-bar-nav">
+        <a class="icon icon-left pull-left open-panel"></a>
+        <a class="icon icon-refresh pull-right"></a>
+        <h1 class="title">套餐详情</h1>
+      </header>
+      <footer class="l-page-footer l-border-t l-flex-hc">
+        <div class="l-rest l-margin-l">
+          订单金额：<span class="l-text-warn"><i class="l-icon">&#xe6cb;</i>210.00</span>
+        </div>
+        <a class="button button-fill l-btn" href="shopcar-order.html">&ensp;立即购买&ensp;</a>
+      </footer>
+      <!-- 这里是页面内容区 -->
+      <div class="content">
+        <!-- Slider -->
+        <div class="swiper-container" data-space-between='10'>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="https://placeholdit.imgix.net/~text?txtsize=32&bg=0894ec&txtclr=fff&txt=720x300&w=720&h=300" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img src="https://placeholdit.imgix.net/~text?txtsize=32&bg=0894ec&txtclr=fff&txt=720x300&w=720&h=300" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img src="https://placeholdit.imgix.net/~text?txtsize=32&bg=0894ec&txtclr=fff&txt=720x300&w=720&h=300" alt="">
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <!-- Slider end-->
+        <div class="l-padding l-bg l-border-b">
+          <h3>[年度大促销] 汽车保养大套餐都放到打飞机的咖啡机</h3>
+          <div class="l-shop-goods-price">
+            <span class="l-shop-goods-coupon" style="margin-right: 0;">9折优惠</span>
+            <strong class="l-text-hot"><i class="l-icon">&#xe6cb;</i>200.00</strong>&ensp;&ensp;
+            <del class="l-text-gray">原价：<i class="l-icon">&#xe6cb;</i>1000.00</del>
+          </div>
+          <p class="l-fs-s l-text-gray">已售2445份</p>
+        </div>
+        <div class="list-block" style="margin-top: 0;">
+          <ul>
+            <li>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">有效期：12月</div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="l-bg l-margin-b">
+          <div class="l-panel-title l-border-b">
+            <h3>套餐内容</h3>
+          </div>
+          <div class="list-block l-margin-0">
+            <ul>
+              <li class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">更换机油</div>
+                  <div class="item-after">2次</div>
+                </div>
+              </li>
+              <li class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">普通洗车</div>
+                  <div class="item-after">5次</div>
+                </div>
+              </li>
+              <li class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">维修钣喷</div>
+                  <div class="item-after">10次</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="l-padding">
+            <a href="shop-taocan-details-all.html" class="button l-btn">查看明细</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../static/plugs/require.min.js" data-main="../static/js/main.js"></script>
+  <script>
+  // requireCallback作为requirejs的回调
+  function requireCallback($, utils, Vue) {
+    $('.swiper-container').swiper();
+
+    var vm = new Vue({
+      el: document.body,
+      methods: {
+        addShopcar: function(){
+          $.toast('已加入购物车', 2000, 'l-toast');
+        }
+      }
+    })
+  }
+  </script>
+</body>
+
+</html>

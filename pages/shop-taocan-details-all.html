@@ -23,35 +23,35 @@
       <header class="bar bar-nav l-bar-nav">
         <a class="icon icon-left pull-left open-panel"></a>
         <a class="icon icon-refresh pull-right"></a>
-        <h1 class="title">轮胎专场</h1>
+        <h1 class="title">套餐详情</h1>
       </header>
-      <!-- 二级标题栏 -->
-      <div class="bar bar-header-secondary l-bg">
-        <div class="l-flex-hc l-padding-tb-s l-text-center l-text-gray">
-          <span class="l-rest">综合</span>
-          <span class="l-rest">销量</span>
-          <span class="l-rest">新品</span>
-          <span class="l-rest">综合</span>
-          <span class="l-rest">价格<i class="l-icon">&#xe609;</i></span>
-          <span class="l-rest">筛选<i class="l-icon">&#xe61b;</i></span>
-        </div>
-      </div>
       <!-- 这里是页面内容区 -->
       <div class="content">
-        <div class="l-shop-goods-list">
-          <div class="row">
-            <a v-for="item in 8" class="col-50 l-shop-goods-item l-text-default" href="shop-goods-details.html">
-              <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0894ec&txtclr=fff&txt=%E7%BC%A9%E7%95%A5%E5%9B%BE&w=344&h=344">
-              <div class="l-padding-sm">
-                <h4 class="l-text-clamp">[年度大促销] 汽车保养大套餐都放到打飞机的咖啡机</h4>
-                <div class="l-shop-goods-price">
-                  <span class="l-shop-goods-coupon">9折优惠</span>
-                  <strong class="l-text-hot"><i class="l-icon">&#xe6cb;</i>200.00</strong>
-                </div>
-                <p class="l-fs-s l-text-gray">已售2445份</p>
-              </div>
-            </a>
+        <div class="l-bg l-margin-b">
+          <div class="l-flex-h l-padding">
+            <img class="l-thumb-circle l-margin-r-s" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0894ec&txtclr=fff&txt=Logo&w=120&h=120">
+            <div class="l-rest l-margin-r-s">
+              <h4 class="l-margin-0 l-text-clamp">宝马 WRANGLER RUBICON 3.6L越野的飞机的扩大解放车</h4>
+              <p class="l-margin-0 l-fs-s l-text-gray">粤A 38343</p>  
+            </div>
           </div>
+          <div class="l-padding l-border-t">
+            套餐原价：<span class="l-text-warn"><i class="l-icon">&#xe6cb;</i>200.00</span>
+          </div>
+        </div>
+
+        <div class="l-bg l-margin-b l-padding" v-for="item in 8">
+          <h3>服务项目：更换机油</h3>
+          <p class="l-fs-s l-text-gray">
+            <span class="l-margin-r">单次工时费：<i class="l-icon">&#xe6cb;</i>100.00</span>
+            <span class="l-margin-r">工时次数：1</span>
+          </p>
+          <hr class="l-line">
+          <h3>适用配件：美孚金装1号</h3>
+          <p class="l-fs-s l-text-gray">
+            <span class="l-margin-r">配件销售单价：<i class="l-icon">&#xe6cb;</i>100.00</span>
+            <span class="l-margin-r">配件数量：4</span>
+          </p>
         </div>
       </div>
     </div>
@@ -60,10 +60,13 @@
   <script>
   // requireCallback作为requirejs的回调
   function requireCallback($, utils, Vue) {
+    $('.swiper-container').swiper();
+
     var vm = new Vue({
       el: document.body
-    });
+    })
   }
   </script>
 </body>
+
 </html>

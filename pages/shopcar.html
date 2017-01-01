@@ -66,28 +66,7 @@
         </div>
         <!-- 列表 -->
         <div class="l-shopcar-list">
-          <div class="l-shopcar-item l-flex-h l-border-b">
-            <label class="l-checkbox">
-              <input type="checkbox" :checked="checkAll">
-              <i class="l-icon l-icon-radio"></i>
-            </label>
-            <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0894ec&txtclr=fff&txt=120x120&w=120&h=120">
-            <div class="l-rest">
-              <h4 class="l-text-clamp">商品名称商品名称商</h4>
-              <div class="l-shopcar-item-disc">
-                <span v-if="!isEdit" class="pull-right l-num">x1</span>
-                <span v-else class="pull-right l-number">
-                  <i class="l-icon">&#xe635;</i>
-                  <input type="tel" value="1">
-                  <i class="l-icon">&#xe62a;</i>
-                </span>
-                <span class="l-text-warn">
-                  <i class="l-icon">&#xe6cb;</i>200.00
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="l-shopcar-item l-flex-h l-border-b">
+          <div class="l-shopcar-item l-flex-h l-border-b" v-for="item in 5">
             <label class="l-checkbox">
               <input type="checkbox" :checked="checkAll">
               <i class="l-icon l-icon-radio"></i>
@@ -110,6 +89,7 @@
           </div>
         </div>
         <!-- 列表 end-->
+        <div class="l-margin-b"></div>
       </div>
     </div>
   </div>

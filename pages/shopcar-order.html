@@ -31,12 +31,12 @@
         <div class="l-rest l-margin-l">
           订单金额：<span class="l-text-warn"><i class="l-icon">&#xe6cb;</i>210.00</span>
         </div>
-        <a class="button button-fill l-btn" href="shopcar-order-pay.html">&ensp;创建订单&ensp;</a>
+        <a class="button button-fill l-btn" href="shopcar-order-pay.html">&ensp;提交订单&ensp;</a>
       </footer>
       <!-- 这里是页面内容区 -->
       <div class="content">
         <!-- 购买的商品 -->
-        <div class="l-flex-h l-shopcar-order-list">
+        <!-- <div class="l-flex-h l-shopcar-order-list">
           <div>
             <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0894ec&txtclr=fff&txt=120x120&w=120&h=120">
             <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0894ec&txtclr=fff&txt=120x120&w=120&h=120">
@@ -48,8 +48,43 @@
             <a class="button l-inline">查看</a>
             <p class="l-fs-s" style="margin: 0.5rem 0 0 0;">共&ensp;3&ensp;件</p>
           </div>
+        </div> -->
+        <!-- 购买的商品 end-->
+
+        <!-- 购买的商品 -->
+        <div class="l-panel-title">
+          <h3>商品信息</h3>
+        </div>
+        <div class="l-shopcar-item l-flex-h l-border-t l-bg" v-for="item in 3">
+          <img class="l-thumb" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0894ec&txtclr=fff&txt=120x120&w=120&h=120">
+          <div class="l-rest">
+            <h4 class="l-text-clamp">商品名称商品名称商</h4>
+            <div class="l-shopcar-item-disc">
+              <span v-if="!isEdit" class="pull-right l-num">x1</span>
+              <span v-else class="pull-right l-number">
+                <i class="l-icon">&#xe635;</i>
+                <input type="tel" value="1">
+                <i class="l-icon">&#xe62a;</i>
+              </span>
+              <span class="l-text-warn">
+                <i class="l-icon">&#xe6cb;</i>200.00
+              </span>
+            </div>
+          </div>
         </div>
         <!-- 购买的商品 end-->
+
+        <!-- 适用车型 -->
+        <div class="l-panel-title l-margin-t">
+          <h3>适用车型</h3>
+        </div>
+        <div class="l-flex-hc l-padding l-bg l-border-t">
+          <img class="l-thumb-circle-s l-margin-r-s" src="https://placeholdit.imgix.net/~text?txtsize=28&amp;bg=0894ec&amp;txtclr=fff&amp;txt=Logo&amp;w=120&amp;h=120">
+          <div class="l-rest l-margin-r-s">
+            <h4 class="l-margin-0">宝马 WRANGLER RUBICON 3.6L越野的飞机的扩大解放车</h4>
+          </div>
+        </div>
+        <!-- 适用车型 end-->
 
         <!-- 配送方式 -->
         <div class="list-block">
@@ -136,6 +171,9 @@
       }]
     });
 
+    var vm = new Vue({
+      el: document.body
+    })
   }
   </script>
 </body>

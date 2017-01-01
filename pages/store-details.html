@@ -84,14 +84,10 @@
   <script>
   // requireCallback作为requirejs的回调
   function requireCallback($, utils, Vue) {
-    // $.reinitSwiper('page-store-details');
-    $('.swiper-container').swiper({
-
-    });
+    $('.swiper-container').swiper();
     var vm = new Vue({
       el: document.body,
       data: {
-        
       }
     })
   }
