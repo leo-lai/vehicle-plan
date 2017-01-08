@@ -14,14 +14,13 @@
   <link rel="shortcut icon" href="../static/favicon.ico" />
   <title>车方案</title>
 </head>
-
 <body>
   <div class="page-group">
     <!-- 单个page ,第一个.page默认被展示-->
-    <div class="page disable-router">
+    <div class="page" id="car-info">
       <!-- 标题栏 -->
       <header class="bar bar-nav l-bar-nav">
-        <a class="icon icon-left pull-left open-panel"></a>
+        <a class="icon icon-left pull-left nav-back"></a>
         <a class="icon icon-refresh pull-right"></a>
         <h1 class="title">车辆信息</h1>
       </header>
@@ -31,11 +30,11 @@
           <ul>
             <!-- Text inputs -->
             <li>
-              <div class="item-content item-link">
+              <div class="item-content item-link" onclick="$.router.load('#page-brands')">
                 <div class="item-inner">
                   <div class="item-title label">车型</div>
                   <div class="item-input">
-                    <input readonly type="text" placeholder="请选择">
+                    <input readonly type="text" placeholder="请选择" :value="carModel">
                   </div>
                 </div>
               </div>
@@ -43,9 +42,12 @@
             <li>
               <div class="item-content item-link">
                 <div class="item-inner">
-                  <div class="item-title label">车辆信息</div>
+                  <div class="item-title label">车辆性质</div>
                   <div class="item-input">
-                    <input readonly type="text" placeholder="请选择">
+                    <select>
+                      <option>私家车</option>
+                      <option>公司车</option>
+                    </select>
                   </div>
                 </div>
               </div>
@@ -54,7 +56,7 @@
               <div class="item-content">
                 <div class="item-inner">
                   <div class="item-title label">车牌号码</div>
-                  <div class="l-car-prefix">粤A</div>
+                  <div class="l-car-prefix" onclick="$.router.load('#page-car-prefix')" v-text="carNumPrefix">粤A</div>
                   <div class="item-input">
                     <input type="tel" placeholder="请填写">
                   </div>
@@ -87,7 +89,7 @@
                 <div class="item-inner">
                   <div class="item-title label">发动机号</div>
                   <div class="item-input">
-                    <input type="text" placeholder="请填写">
+                    <input type="url" placeholder="请填写">
                   </div>
                 </div>
               </div>
@@ -97,7 +99,7 @@
                 <div class="item-inner">
                   <div class="item-title label">车架号</div>
                   <div class="item-input">
-                    <input type="text" placeholder="请填写">
+                    <input type="url" placeholder="请填写">
                   </div>
                 </div>
               </div>
@@ -110,12 +112,193 @@
         </div>
       </div>
     </div>
+    <!-- 车辆品牌列表 -->
+    <div class="page" id="page-brands">
+      <!-- 标题栏 -->
+      <header class="bar bar-nav l-bar-nav">
+        <a class="icon icon-left pull-left back"></a>
+        <h1 class="title">选择车辆型号</h1>
+      </header>
+      <div class="content">
+        <div class="list-block contacts-block l-car-model-list">
+          <div class="list-group" v-for="(letter, brands) in carList.brands">
+            <ul>
+              <li class="list-group-title" v-text="letter | uppercase"></li>
+              <li v-for="brand in brands" @click="sltBrand(brand)">
+                <div class="item-content">
+                  <div class="item-media">
+                    <img class="l-thumb" :src="'../static/carlogo/'+brand.value+'.png'">
+                  </div>
+                  <div class="item-inner">
+                    <div class="item-title" v-text="brand.name"></div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 车辆品牌列表 end -->
+
+    <!-- 车系列表 -->
+    <div class="page" id="page-series">
+      <header class="bar bar-nav l-bar-nav">
+        <a class="icon icon-left pull-left nav-back"></a>
+        <h1 class="title">奥迪</h1>
+      </header>
+      <div class="content">
+        <div class="list-block l-car-model-list">
+          <ul>
+            <li class="item-content" v-for="series in carList.series" @click="sltSeries(series)">
+              <div class="item-inner">
+                <div class="item-title" v-text="series.name"></div>
+              </div>
+            </li>
+          </ul>
+        </div> 
+      </div>
+    </div>
+    <!-- 车系列表 end-->
+
+    <!-- 车排量年份列表 -->
+    <div class="page" id="page-carccs">
+      <header class="bar bar-nav l-bar-nav">
+        <a class="icon icon-left pull-left nav-back"></a>
+        <h1 class="title">奥迪豪华版</h1>
+      </header>
+      <div class="content">
+        <div class="list-block l-car-model-list">
+          <ul>
+            <li class="item-content" v-for="carcc in carList.carccs" @click="sltCarccs(carcc)">
+              <div class="item-inner">
+                <div class="item-title" v-text="carcc.name"></div>
+              </div>
+            </li>
+          </ul>
+        </div> 
+      </div>
+    </div>
+    <!-- 车排量年份列表 end-->
+
+    <!-- 车排量年份列表 -->
+    <div class="page" id="page-car-prefix">
+      <header class="bar bar-nav l-bar-nav">
+        <a class="icon icon-left pull-left nav-back"></a>
+        <h1 class="title">选择车牌城市</h1>
+      </header>
+      <div class="content">
+        <ul class="l-car-prefix-list">
+          <li v-for="item in carNumPrefixList" @click="sltCarNumProvince(item)">
+            <span v-text="item.oldName"></span>
+            (<span v-text="item.province"></span>)
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- 车排量年份列表 end-->
+  </div>
+  <div class="panel-overlay"></div>
+  <div class="panel panel-right panel-cover l-panel-big" id="panel-car-city">
+    <header class="bar bar-nav">
+      <h1 class="title" v-text="sltedCarNumPrefix.province"></h1>
+    </header>
+    <ul class="l-car-prefix-list">
+      <li v-for="item in sltedCarNumPrefix.city" @click="sltCarNumCity(item)">
+        <span v-text="item.oldName"></span>
+      </li>
+    </ul>
   </div>
   <script src="../static/plugs/require.min.js" data-main="../static/js/main.js"></script>
   <script>
+  // 车品牌按字母排序
+  var groupByLetter = function(arr){ 
+    var retObject = {};
+    for (var i = 0, letter = null; i < arr.length;  i++) {
+      letter = arr[i].value.substr(0,1).toLowerCase();
+      retObject[letter] = retObject[letter] || [];
+      retObject[letter].name = letter;
+      arr[i].index = i;
+      retObject[letter].push(arr[i]);
+    };
+    return retObject;
+  };
+
   // requireCallback作为requirejs的回调
   function requireCallback($, utils, Vue) {
     $('#date-on-road').calendar();
+    var vm = new Vue({
+      el: document.body,
+      data: function(){
+        return {
+          carList: {
+            brands: {},   // 品牌
+            series: [],   // 车系
+            carccs: [],   // 排量
+            sltedBrand: {},
+            sltedSeries: {},
+            sltedCarcc: {}
+          },
+          carNumPrefixList: [],
+          sltedCarNumPrefix: {},
+          carNumPrefix: '粤A',
+          carModel: '',
+          formData: {
+
+          }
+        }
+      },
+      ready: function(){
+        var self = this;
+        // 获取车品牌数据
+        $.getJSON('../static/data/car-brands.json', function(response){
+          if(response.success){
+            self.carList.brands = groupByLetter(response.data); 
+          }else{
+            $.alert(response.message);
+          }
+        });
+
+        // 车牌地区数据
+        $.getJSON('../static/data/car-num-prefix.json', function(list){
+          console.log(list);
+          self.carNumPrefixList = list; 
+        });
+
+        // 测试数据
+        var n = 50;
+        while(--n>0){
+          this.carList.series.push({id: n, name: '车系数据'+n});
+          this.carList.carccs.push({id: n, name: '排量数据'+n});
+        }
+      },
+      methods: {
+        sltBrand: function(brand){
+          this.carList.sltedBrand = brand;
+          this.carModel = brand.name;
+          $.router.load('#page-series');
+        },
+        sltSeries: function(series){
+          this.carList.sltedSeries = series;
+          this.carModel = this.carList.sltedBrand.name + ' ' + series.name;
+          $.router.load('#page-carccs');
+        },
+        sltCarccs: function(carcc){
+          this.carList.sltedCarcc = carcc;
+          this.carModel = this.carList.sltedBrand.name + ' ' + this.carList.sltedSeries.name + ' ' + carcc.name;
+          window.history.go(-Math.min(window.history.length-1, 3));
+        },
+        sltCarNumProvince: function(province){
+          this.sltedCarNumPrefix = province;
+          $.openPanel('#panel-car-city');
+        },
+        sltCarNumCity: function(city){
+          this.carNumPrefix = city.oldName;
+          $.router.back();
+          $.closePanel();
+        }
+      }
+    });
   }
   </script>
 </body>

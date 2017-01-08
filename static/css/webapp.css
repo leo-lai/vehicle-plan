@@ -22,10 +22,11 @@ h3,h4,p{margin:0;}
   } 
 }
 /*sui mobile 本地化样式*/
+.list-block .list-group-title{color: #ccc;}
 .bar-tab-secondary{bottom: 2.4rem;}
 .bar-tab-secondary .button{position:static;}
 .bar-tab-secondary~.content{bottom: 4.6rem;}
-.l-bar-nav{background-color: #393a3e;color: #fff;}
+ .l-bar-nav{background-color: #393a3e;color: #fff;} 
 .l-bar-nav.bar:after{background-color: #555;}
 .l-bar-nav .title{color: #fff;}
 .l-bar-nav .icon{color: #fff; font-size: inherit;}
@@ -43,6 +44,15 @@ h3,h4,p{margin:0;}
 .modal-title~.modal-text{color: #666;font-size: 0.75rem;}
 .picker-modal .bar:before{background-color: #d7d7d7;}
 .button{min-width: 2.5rem;}
+.l-panel-big{width: 14rem;background-color: inherit;color: inherit;}
+.l-panel-big.panel-right.panel-cover{right:-14rem;}
+body.with-panel-right-cover .l-panel-big.panel-right{
+  -webkit-transform: translate3d(-14rem, 0, 0);
+          transform: translate3d(-14rem, 0, 0);
+}
+body.with-panel-right-cover .panel-overlay{
+  opacity: 1; background-color: rgba(0,0,0,0.6);
+}
 @media only screen and (-webkit-min-device-pixel-ratio: 2){
   .modal-button:after {
     height: 200%;
@@ -583,3 +593,13 @@ div.l-table-tr.l-border-b{padding-bottom: 0.375rem; margin-bottom: 0.375rem;}
   -webkit-clip-path: polygon(100% 50%, 0 0, 0 100%);
   clip-path: polygon(100% 50%, 0 0, 0 100%);
 }
+/* 车型选择 */
+.l-car-model-list{margin:0;}
+.l-car-model-list .l-thumb{width: 3.0rem; height: 2.0rem;}
+.l-panel-model{
+  background: inherit; color: inherit;
+}
+
+/* 车牌城市 */
+.l-car-prefix-list{padding: 0.375rem;margin: 0;overflow: hidden;background: #fff;}
+.l-car-prefix-list li{float: left;width: 33%;padding: 0.375rem;text-align: center;list-style: none;}

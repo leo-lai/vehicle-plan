@@ -43,7 +43,7 @@ require(['zepto'], function($){
     }
   };
   require(['sui', 'utils', 'vue'], function($, utils, Vue) {
-    $('body').on('click' ,'header.bar-nav>.icon-left', function(){
+    $('body').on('click' ,'.nav-back:not(.back)', function(){
       window.history.back();
     });
     $('body').on('click' ,'header.bar-nav>.icon-refresh', function(){
